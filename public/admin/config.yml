@@ -1,0 +1,49 @@
+backend:
+  name: git-gateway
+  branch: master
+  repo: alexanderson1993/portfolio.nataliebrianne.com
+
+media_folder: "public/assets"
+public_folder: "/public/assets"
+publish_mode: editorial_workflow
+
+# Picture Page
+# - Title
+# - Description
+# - Medium
+
+# Testimonial
+# - Testimonial
+# - Name
+collections: # A list of collections the CMS should be able to edit
+  - name: "items"
+    label: "Portfolio Items"
+    label_singular: "Portfolio Item"
+    folder: "src/content/portfolio"
+    slug: "{{slug}}"
+    create: true
+    delete: true
+    fields:
+      - { label: "Title", name: "title", widget: "string", tagname: "h1" }
+      - { label: "Image", name: "image", widget: "image", required: true }
+      - { label: "Medium", name: "medium", widget: "string", tagname: "small" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+  - name: "testimonials"
+    label: "Testimonials"
+    label_singular: "testimonial"
+    folder: "src/content/testimonials"
+    slug: "{{slug}}"
+    create: true
+    delete: true
+    fields:
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Name", name: "name", widget: "string", tagname: "p" }
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "Hire Me"
+        name: "hireme"
+        file: "src/content/hireme.md"
+        fields:
+          - { label: "Body", name: "body", widget: "markdown" }

@@ -3,26 +3,22 @@
     {
       "title": "Painting of cat",
       "description": "This is a painting of a cat",
-      "image": "http://placekitten.com/200/200",
-      "slug": "painting"
+      "image": "http://placekitten.com/200/200"
     },
     {
       "title": "Photo of cat",
       "description": "This is a photo of a cat",
-      "image": "http://placekitten.com/200/210",
-      "slug": "photo"
+      "image": "http://placekitten.com/200/210"
     },
     {
       "title": "Mirage of cat",
       "description": "This is a mirage of a cat",
-      "image": "http://placekitten.com/200/220",
-      "slug": "mirage"
+      "image": "http://placekitten.com/200/220"
     },
     {
       "title": "Dream of cat",
       "description": "This is a dream of a cat",
-      "image": "http://placekitten.com/150/160",
-      "slug": "dream"
+      "image": "http://placekitten.com/150/160"
     }
   ]
 }

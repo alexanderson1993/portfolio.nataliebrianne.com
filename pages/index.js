@@ -1,9 +1,9 @@
-import Head from 'next/head'
+import Head from "next/head";
 
-import Nav from '@components/Nav'
-import Header from '@components/Header'
-import Card from '@components/Card'
-import Footer from '@components/Footer'
+import Nav from "@components/Nav";
+import Header from "@components/Header";
+import Card from "@components/Card";
+import Footer from "@components/Footer";
 
 export default function Home({ items }) {
   return (
@@ -27,7 +27,7 @@ export default function Home({ items }) {
                   picture={i.image}
                   link={i.slug}
                 />
-              )
+              );
             })}
         </div>
       </main>
@@ -41,6 +41,8 @@ export default function Home({ items }) {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          background-color: #2c4b4f;
+          color: #d4dddf;
         }
 
         main {
@@ -75,20 +77,18 @@ export default function Home({ items }) {
         }
       `}</style>
     </div>
-  )
+  );
 }
 
 export async function getStaticProps() {
-  const portfolioData = await import(`../portfolio.json`)
-
-  let slugs = []
-  portfolioData.items.map((i) => {
-    slugs.concat(i.slug)
-  })
+  const portfolioData = await import(`../portfolio.json`);
 
   return {
     props: {
-      items: portfolioData.items,
+      items: portfolioData.items.map((item) => ({
+        ...item,
+        slug: item.title.toLowerCase().split(" ").join("-"),
+      })),
     },
-  }
+  };
 }

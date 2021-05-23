@@ -1,8 +1,8 @@
-import Head from 'next/head'
+import Head from "next/head";
 
-import Nav from '@components/Nav'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Nav from "@components/Nav";
+import Header from "@components/Header";
+import Footer from "@components/Footer";
 
 export default function Item({ title, description, image }) {
   return (
@@ -56,17 +56,21 @@ export default function Item({ title, description, image }) {
         }
       `}</style>
     </div>
-  )
+  );
 }
 
 export async function getStaticProps({ ...ctx }) {
-  const portfolioData = await import(`../../portfolio.json`)
+  const portfolioData = await import(`../../portfolio.json`);
 
-  let currentItem = portfolioData.items.filter((i) => {
-    return i.slug === ctx.params.item
-  })
+  let currentItem = portfolioData.items.find((i) => {
+    return i.title.toLowerCase().split(" ").join("-") === ctx.params.item;
+  });
 
-  let { title, description, image } = currentItem[0]
+  if (!currentItem)
+    return {
+      notFound: true,
+    };
+  let { title, description, image } = currentItem;
 
   return {
     props: {
@@ -74,18 +78,20 @@ export async function getStaticProps({ ...ctx }) {
       description,
       image,
     },
-  }
+  };
 }
 
 export async function getStaticPaths() {
-  const portfolioData = await import(`../../portfolio.json`)
-  let slugs = portfolioData.items.map((i) => i.slug)
+  const portfolioData = await import(`../../portfolio.json`);
+  let slugs = portfolioData.items.map((i) =>
+    i.title.toLowerCase().split(" ").join("-")
+  );
   let paths = slugs.map((slug) => {
-    return { params: { item: slug } }
-  })
+    return { params: { item: slug } };
+  });
 
   return {
     paths,
     fallback: false,
-  }
+  };
 }
