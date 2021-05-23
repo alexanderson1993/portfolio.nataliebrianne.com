@@ -18,7 +18,7 @@ collections: # A list of collections the CMS should be able to edit
   - name: "items"
     label: "Portfolio Items"
     label_singular: "Portfolio Item"
-    folder: "src/content/portfolio"
+    folder: "content/portfolio"
     slug: "{{slug}}"
     create: true
     delete: true
@@ -32,7 +32,7 @@ collections: # A list of collections the CMS should be able to edit
   - name: "testimonials"
     label: "Testimonials"
     label_singular: "testimonial"
-    folder: "src/content/testimonials"
+    folder: "content/testimonials"
     slug: "{{slug}}"
     create: true
     delete: true
@@ -44,6 +44,6 @@ collections: # A list of collections the CMS should be able to edit
     files:
       - label: "Hire Me"
         name: "hireme"
-        file: "src/content/hireme.md"
+        file: "content/hireme.md"
         fields:
           - { label: "Body", name: "body", widget: "markdown" }
