@@ -5,7 +5,6 @@ backend:
 
 media_folder: "public/assets"
 public_folder: "/public/assets"
-publish_mode: editorial_workflow
 
 # Picture Page
 # - Title
