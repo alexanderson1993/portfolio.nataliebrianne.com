@@ -1,7 +1,6 @@
 import Head from "next/head";
 
 export function Meta({ title }: { title?: string }) {
-  console.log(title);
   return (
     <Head>
       <title>Natalie Brianne Art{title ? ` | ${title}` : ""}</title>

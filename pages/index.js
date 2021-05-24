@@ -1,5 +1,5 @@
 import Nav from "@components/Nav";
-import { Meta } from "@components/Meta";
+import { Meta } from "@components/HeadMeta";
 import Card from "@components/Card";
 import Footer from "@components/Footer";
 import path from "path";

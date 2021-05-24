@@ -1,4 +1,4 @@
-import { Meta } from "@components/Meta";
+import { Meta } from "@components/HeadMeta";
 
 import Nav from "@components/Nav";
 import Header from "@components/Header";
