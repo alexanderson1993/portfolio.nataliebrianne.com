@@ -4,17 +4,19 @@ import Wordmark from "./wordmark";
 export default function Nav() {
   return (
     <nav className="nav" role="navigation" aria-label="main navigation">
-      <div className="logo">
-        <img
-          src="/images/logo-square.svg"
-          alt="A logo of a paintbrush over a canvas"
-        />
-        <img
-          className="wordmark"
-          src="/images/wordmark.svg"
-          alt="Natalie Brianne"
-        />
-      </div>
+      <Link href="/">
+        <a className="logo">
+          <img
+            src="/images/logo-square.svg"
+            alt="A logo of a paintbrush over a canvas"
+          />
+          <img
+            className="wordmark"
+            src="/images/wordmark.svg"
+            alt="Natalie Brianne"
+          />
+        </a>
+      </Link>
       <div>
         <Link href="/">
           <a>Home</a>

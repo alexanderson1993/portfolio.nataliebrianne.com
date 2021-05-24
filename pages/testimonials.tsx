@@ -1,5 +1,5 @@
 import Head from "next/head";
-
+import { Fragment } from "react";
 import Nav from "@components/Nav";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
@@ -8,6 +8,7 @@ import path from "path";
 import remark from "remark";
 import html from "remark-html";
 import remarkFrontmatter from "remark-frontmatter";
+import { load as jsyaml } from "js-yaml";
 
 export async function getStaticProps() {
   const testimonials = await Promise.all(
@@ -25,13 +26,21 @@ export async function getStaticProps() {
         const processor = remark()
           .use(html)
           .use(remarkFrontmatter, ["toml", "yaml"]);
-        processor.parse(await data);
+        const parts: any = jsyaml(
+          (processor.parse(await data).children as any)[0].value
+        );
+        const body = (await processor.process((await data) || "")).toString();
+
+        return { ...parts, body };
       })
   );
-  console.log(testimonials);
-  return { props: {} };
+  return { props: { testimonials } };
 }
-export default function Testimonials() {
+export default function Testimonials({
+  testimonials,
+}: {
+  testimonials: { name: string; body: string }[];
+}) {
   return (
     <div className="container">
       <Head>
@@ -42,18 +51,26 @@ export default function Testimonials() {
       <Nav />
 
       <main>
-        <Header text="Contact me" />
-        Form successfully submitted!
+        <Header text="Testimonials" />
+        <dl>
+          {testimonials.map((t) => (
+            <Fragment key={t.name}>
+              <dt>{t.name}</dt>
+              <dd dangerouslySetInnerHTML={{ __html: t.body }}></dd>
+            </Fragment>
+          ))}
+        </dl>
       </main>
 
       <Footer />
 
       <style jsx>{`
         .container {
-          height: 100vh;
+          min-height: 100vh;
+          width: 100%;
+
           display: flex;
           flex-direction: column;
-          justify-content: center;
           align-items: center;
         }
 
@@ -61,12 +78,28 @@ export default function Testimonials() {
           padding: 5rem 0;
           flex: 1;
           width: 100%;
+          max-width: 960px;
+          padding: 0 2rem;
           display: flex;
           flex-direction: column;
-          justify-content: center;
           align-items: center;
           background-color: #2c4b4f;
           color: #d4dddf;
+        }
+        dt {
+          font-size: 1.6rem;
+          font-weight: bold;
+        }
+        dd {
+          line-height: 1.8;
+        }
+        dd:after {
+          content: "";
+          display: inline-block;
+          text-align: center;
+          width: 5rem;
+          border-bottom: solid 1px currentcolor;
+          margin: 3rem 0;
         }
       `}</style>
 

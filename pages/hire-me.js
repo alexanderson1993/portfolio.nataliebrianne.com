@@ -18,7 +18,6 @@ export async function getStaticProps() {
     .use(html)
     .process(hireMe || "");
   const content = markdown.toString();
-  console.log(content);
   return { props: { content } };
 }
 export default function Contact({ content }) {

@@ -1,19 +1,11 @@
 import Link from "next/link";
-import Img from "next/image";
 
 export default function Card({ title, picture, link, full }) {
   return (
     <>
       <Link href={`/items/${link}`}>
         <a className={`card ${full ? "full" : ""}`}>
-          <Img
-            src={picture}
-            alt={title}
-            width={full ? 932 : 300}
-            height={350}
-            objectFit="cover"
-            style={{ borderRadius: "5px" }}
-          />
+          <img src={picture} alt={title} />
         </a>
       </Link>
       <style jsx>{`

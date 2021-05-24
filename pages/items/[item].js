@@ -106,7 +106,6 @@ export async function getStaticProps({ ...ctx }) {
   const body = (await processor.process(currentItem || "")).toString();
   const parts = jsyaml(processor.parse(currentItem).children[0].value);
 
-  console.log(parts);
   return {
     props: {
       slug: item,
