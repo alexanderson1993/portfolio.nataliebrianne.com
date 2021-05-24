@@ -1,4 +1,4 @@
-import { Meta } from "@components/Meta blah";
+import { Meta } from "@components/Meta";
 import { Fragment } from "react";
 import Nav from "@components/Nav";
 import Header from "@components/Header";
