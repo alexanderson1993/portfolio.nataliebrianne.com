@@ -1,11 +1,7 @@
 export default function Footer() {
   return (
     <>
-      <footer>
-        Made with{' '}
-        <img src="/netliheart.svg" alt="Netlify Logo" className="logo" /> for
-        you
-      </footer>
+      <footer>© {new Date().getFullYear()}</footer>
       <style jsx>{`
         footer {
           width: 100%;
@@ -22,5 +18,5 @@ export default function Footer() {
         }
       `}</style>
     </>
-  )
+  );
 }

@@ -1,14 +1,14 @@
-import Head from 'next/head'
+import Head from "next/head";
 
-import Nav from '@components/Nav'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Nav from "@components/Nav";
+import Header from "@components/Header";
+import Footer from "@components/Footer";
 
 export default function Contact() {
   return (
     <div className="container">
       <Head>
-        <title>My Portfolio | Success!</title>
+        <title>Natalie Brianne Art | Success!</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -16,7 +16,7 @@ export default function Contact() {
 
       <main>
         <Header text="Contact me" />
-        Form successfully submitted!
+        Form successfully submitted! I will be in touch shortly.
       </main>
 
       <Footer />
@@ -34,9 +34,12 @@ export default function Contact() {
           padding: 5rem 0;
           flex: 1;
           display: flex;
+          width: 100%;
+
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          background-color: #2c4b4f;
         }
       `}</style>
 
@@ -48,6 +51,8 @@ export default function Contact() {
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
+          background-color: #2c4b4f;
+          color: #d4dddf;
         }
 
         * {
@@ -55,5 +60,5 @@ export default function Contact() {
         }
       `}</style>
     </div>
-  )
+  );
 }

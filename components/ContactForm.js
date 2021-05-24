@@ -7,25 +7,27 @@ export default function ContactForm() {
         <input type="text" name="name" id="yourname" />
       </p>
       <p>
-        <label htmlFor="youremail">Your Email: </label>{' '}
+        <label htmlFor="youremail">Your Email: </label>{" "}
         <input type="email" name="email" id="youremail" />
       </p>
       <p>
         <label htmlFor="yourmessage">Message: </label>
-        <textarea name="message" id="yourmessage"></textarea>
+        <textarea name="message" id="yourmessage" rows={5}></textarea>
       </p>
       <p>
         <button type="submit">Send</button>
       </p>
       <style jsx>{`
         label {
-          font-size: 0.8rem;
+          font-size: 1.2rem;
         }
-
+        input {
+          height: 40px;
+        }
         input,
         textarea {
           width: 100%;
-          height: 40px;
+
           border: none;
           border-bottom: 1px solid #d6d6d6;
           font-size: 1.3rem;
@@ -37,13 +39,24 @@ export default function ContactForm() {
         }
 
         button {
-          padding: 20px;
-          background: black;
+          padding: 1rem;
+          background: #1049b6;
+          border: solid;
+          border-width: 2px;
+          border-color: #153b82;
           color: white;
-          border-radius: 10px;
+          width: 100%;
+          border-radius: 5px;
           font-size: 1.3rem;
+          cursor: pointer;
+        }
+        button:hover {
+          background: #2158c1;
+        }
+        button:focus {
+          background: #335492;
         }
       `}</style>
     </form>
-  )
+  );
 }

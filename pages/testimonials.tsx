@@ -3,73 +3,70 @@ import Head from "next/head";
 import Nav from "@components/Nav";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
-import ContactForm from "@components/ContactForm";
-import fs from "fs";
+import { promises as fs } from "fs";
 import path from "path";
 import remark from "remark";
 import html from "remark-html";
+import remarkFrontmatter from "remark-frontmatter";
 
 export async function getStaticProps() {
-  const hireMe = fs.readFileSync(
-    path.join(process.cwd(), "content/hireme.md"),
-    "utf-8"
+  const testimonials = await Promise.all(
+    (
+      await fs.readdir(path.join(process.cwd(), "content/testimonials"))
+    )
+      .map(
+        async (t) =>
+          await fs.readFile(
+            path.join(process.cwd(), "content/testimonials", t),
+            "utf-8"
+          )
+      )
+      .map(async (data) => {
+        const processor = remark()
+          .use(html)
+          .use(remarkFrontmatter, ["toml", "yaml"]);
+        processor.parse(await data);
+      })
   );
-  const markdown = await remark()
-    .use(html)
-    .process(hireMe || "");
-  const content = markdown.toString();
-  console.log(content);
-  return { props: { content } };
+  console.log(testimonials);
+  return { props: {} };
 }
-export default function Contact({ content }) {
+export default function Testimonials() {
   return (
     <div className="container">
       <Head>
-        <title>My Portfolio | Hire Me</title>
+        <title>Natalie Brianne Art | Testimonials</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Nav />
+
       <main>
-        <Header text="Hire me" />
-        <div className="flex-container">
-          <div
-            className="text-content"
-            dangerouslySetInnerHTML={{ __html: content }}
-          ></div>
-          <ContactForm />
-        </div>
+        <Header text="Contact me" />
+        Form successfully submitted!
       </main>
 
       <Footer />
 
       <style jsx>{`
-        .flex-container {
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
-        }
-        .text-content {
-          flex: 1;
-          font-size: 1.2rem;
-          margin-right: 2rem;
-        }
         .container {
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        main {
+          padding: 5rem 0;
+          flex: 1;
+          width: 100%;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
           background-color: #2c4b4f;
           color: #d4dddf;
-        }
-
-        main {
-          padding: 5rem 1rem;
-          flex: 1;
-          width: 100%;
-          max-width: 960px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
         }
       `}</style>
 
@@ -82,6 +79,7 @@ export default function Contact({ content }) {
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
           background-color: #2c4b4f;
+          color: #d4dddf;
         }
 
         * {

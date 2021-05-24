@@ -9,7 +9,7 @@ import remark from "remark";
 import html from "remark-html";
 import remarkFrontmatter from "remark-frontmatter";
 import { load as jsyaml } from "js-yaml";
-export default function Item({ title, description, image }) {
+export default function Item({ title, body, medium, image }) {
   return (
     <div className="container">
       <Head>
@@ -21,8 +21,10 @@ export default function Item({ title, description, image }) {
 
       <main>
         <Header text={title} />
-        <p>{description}</p>
         <img src={image} />
+        <small>{medium}</small>
+        <hr />
+        <div dangerouslySetInnerHTML={{ __html: body }} />
       </main>
 
       <Footer />
@@ -47,6 +49,14 @@ export default function Item({ title, description, image }) {
           max-width: 960px;
           width: 100%;
           padding: 0 2rem;
+        }
+        small {
+          margin-top: 1rem;
+        }
+        hr {
+          width: 5rem;
+          color: currentColor;
+          margin: 3rem 0;
         }
       `}</style>
 
@@ -81,9 +91,7 @@ export async function getStaticProps({ ...ctx }) {
     );
 
     currentItem = await fs.readFile(filePath, "utf-8");
-    console.log(filePath, currentItem);
   } catch (err) {
-    console.log(err);
     return {
       notFound: true,
     };
@@ -98,6 +106,7 @@ export async function getStaticProps({ ...ctx }) {
   const body = (await processor.process(currentItem || "")).toString();
   const parts = jsyaml(processor.parse(currentItem).children[0].value);
 
+  console.log(parts);
   return {
     props: {
       slug: item,

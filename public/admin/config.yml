@@ -27,8 +27,8 @@ collections: # A list of collections the CMS should be able to edit
       - { label: "Image", name: "image", widget: "image", required: true }
       - { label: "Full Width", name: "full", widget: "boolean", default: false }
       - { label: "Medium", name: "medium", widget: "string", tagname: "small" }
-      - { label: "Description", name: "description", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Description", name: "description", widget: "markdown" }
   - name: "testimonials"
     label: "Testimonials"
     label_singular: "testimonial"
@@ -37,8 +37,8 @@ collections: # A list of collections the CMS should be able to edit
     create: true
     delete: true
     fields:
-      - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Name", name: "name", widget: "string", tagname: "p" }
+      - { label: "Body", name: "body", widget: "markdown" }
   - label: "Pages"
     name: "pages"
     files:
