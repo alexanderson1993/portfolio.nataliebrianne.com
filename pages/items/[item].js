@@ -1,4 +1,4 @@
-import Head from "next/head";
+import { Meta } from "@components/Meta";
 
 import Nav from "@components/Nav";
 import Header from "@components/Header";
@@ -12,10 +12,7 @@ import { load as jsyaml } from "js-yaml";
 export default function Item({ title, body, medium, image }) {
   return (
     <div className="container">
-      <Head>
-        <title>Natalie Brianne Art | {title}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Meta title={title} />
 
       <Nav />
 

@@ -1,4 +1,4 @@
-import Head from "next/head";
+import { Meta } from "@components/Meta";
 
 import Nav from "@components/Nav";
 import Header from "@components/Header";
@@ -23,10 +23,7 @@ export async function getStaticProps() {
 export default function Contact({ content }) {
   return (
     <div className="container">
-      <Head>
-        <title>My Portfolio | Hire Me</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Meta title="Hire Me"></Meta>
       <Nav />
       <main>
         <Header text="Hire me" />

@@ -1,7 +1,5 @@
-import Head from "next/head";
-
 import Nav from "@components/Nav";
-import Header from "@components/Header";
+import { Meta } from "@components/Meta";
 import Card from "@components/Card";
 import Footer from "@components/Footer";
 import path from "path";
@@ -10,7 +8,6 @@ import remark from "remark";
 import html from "remark-html";
 import remarkFrontmatter from "remark-frontmatter";
 import { load as jsyaml } from "js-yaml";
-
 export default function Home({ items }) {
   const full = items.filter((i) => i.full);
   const single = items.filter((i) => !i.full);
@@ -30,10 +27,7 @@ export default function Home({ items }) {
   }
   return (
     <div className="container">
-      <Head>
-        <title>Natalie Brianne Art</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Meta />
       <Nav />
 
       <main>

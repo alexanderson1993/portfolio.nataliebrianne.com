@@ -1,4 +1,4 @@
-import Head from "next/head";
+import { Meta } from "@components/Meta";
 import { Fragment } from "react";
 import Nav from "@components/Nav";
 import Header from "@components/Header";
@@ -43,10 +43,7 @@ export default function Testimonials({
 }) {
   return (
     <div className="container">
-      <Head>
-        <title>Natalie Brianne Art | Testimonials</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Meta title="Testimonials" />
 
       <Nav />
 

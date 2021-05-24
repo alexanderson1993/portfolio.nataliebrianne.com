@@ -1,4 +1,4 @@
-import Head from "next/head";
+import { Meta } from "@components/Meta";
 
 import Nav from "@components/Nav";
 import Header from "@components/Header";
@@ -7,10 +7,7 @@ import Footer from "@components/Footer";
 export default function Contact() {
   return (
     <div className="container">
-      <Head>
-        <title>Natalie Brianne Art | Success!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Meta title="Success!" />
 
       <Nav />
 
