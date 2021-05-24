@@ -48,6 +48,7 @@ export default function Contact({ content }) {
           flex: 1;
           font-size: 1.2rem;
           margin-right: 2rem;
+          line-height: 1.8;
         }
         .container {
           display: flex;
