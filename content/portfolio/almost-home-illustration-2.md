@@ -1,6 +1,6 @@
 ---
 title: Almost Home Illustration 2
-image: /public/assets/almost-home-episode-2.png
+image: /public/assets/almost-home-episode-2.jpg
 full: false
 medium: Digital
 ---

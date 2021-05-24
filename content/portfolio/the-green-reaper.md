@@ -1,6 +1,6 @@
 ---
 title: The Green Reaper
-image: /public/assets/green-reaper.png
+image: /public/assets/green-reaper.jpg
 full: true
 medium: Digital
 ---

@@ -1,6 +1,6 @@
 ---
 title: Group Hug
-image: /public/assets/group_hug.png
+image: /public/assets/group_hug.jpg
 full: true
 medium: Digital
 ---
