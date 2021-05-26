@@ -1,5 +1,5 @@
 ---
-title: Lenna
+title: 8- Lenna
 image: /public/assets/lenna.jpg
 full: false
 medium: Digital
