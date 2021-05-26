@@ -1,5 +1,5 @@
 ---
-title: Mira
+title: 6- Mira
 image: /public/assets/mira.jpg
 full: false
 medium: Digital
