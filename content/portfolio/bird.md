@@ -1,5 +1,5 @@
 ---
-title: Bird
+title: 4- Bird
 image: /public/assets/bird.jpg
 full: false
 medium: Digital
