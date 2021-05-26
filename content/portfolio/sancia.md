@@ -1,5 +1,5 @@
 ---
-title: Sancia
+title: 9- Sancia
 image: /public/assets/sancia.jpg
 full: false
 medium: Digital
