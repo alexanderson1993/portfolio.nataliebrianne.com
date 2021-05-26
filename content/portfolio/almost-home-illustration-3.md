@@ -1,5 +1,5 @@
 ---
-title: Almost Home Illustration 3
+title: 3- Almost Home Illustration
 image: /public/assets/almost-home-episode-3.jpg
 full: false
 medium: Digital
