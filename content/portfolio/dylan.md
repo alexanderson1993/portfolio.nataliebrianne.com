@@ -1,5 +1,5 @@
 ---
-title: Dylan
+title: 7- Dylan
 image: /public/assets/dylan.jpg
 full: false
 medium: Digital
